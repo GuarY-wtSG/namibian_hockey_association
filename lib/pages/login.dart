@@ -9,6 +9,23 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+
+  void _handleLogin() {
+    String email = emailController.text;
+    String password = passwordController.text;
+
+    // Print values (You can replace this with actual authentication logic)
+    print("Email: $email");
+    print("Password: $password");
+
+    // Show a dialog or Snackbar with the values
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Email: $email\nPassword: $password")),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -38,11 +55,13 @@ class _LoginState extends State<Login> {
               obscureText: false,
               hintText: 'Enter Email',
               icon: Icons.alternate_email,
+              controller: emailController,
             ),
             CustomTextfield(
               icon: Icons.lock,
               obscureText: true,
               hintText: 'Enter Password',
+              controller: passwordController,
             ),
             const SizedBox(height: 10),
             ElevatedButton(
@@ -58,6 +77,7 @@ class _LoginState extends State<Login> {
                 minimumSize: Size(size.width, 0),
               ),
               onPressed: () {
+                _handleLogin();
                 Navigator.pushNamed(context, '/landing');
               },
               child: const Text(

@@ -9,6 +9,42 @@ class Signup extends StatefulWidget {
 }
 
 class _SignupState extends State<Signup> {
+  // Controllers for capturing user input
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
+  void _handleSignup() {
+    String name = nameController.text;
+    String email = emailController.text;
+    String password = passwordController.text;
+    String confirmPassword = confirmPasswordController.text;
+
+    // Simple validation: Check if passwords match
+    if (password != confirmPassword) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Passwords do not match!")));
+      return; // Stop execution if passwords don't match
+    } else {
+      Navigator.pushNamed(context, '/landing');
+    }
+
+    // Print values (Replace with actual sign-up logic)
+    print("Name: $name");
+    print("Email: $email");
+    print("Password: $password");
+
+    // Show a dialog or Snackbar with the values
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text("Name: $name\nEmail: $email\nPassword: $password"),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -37,22 +73,26 @@ class _SignupState extends State<Signup> {
               obscureText: false,
               hintText: 'Enter Name',
               icon: Icons.person,
+              controller: nameController,
             ),
             CustomTextfield(
               obscureText: false,
               hintText: 'Enter Email',
               icon: Icons.alternate_email,
+              controller: emailController,
             ),
             CustomTextfield(
               icon: Icons.lock,
               obscureText: true,
               hintText: 'Enter Password',
+              controller: passwordController,
             ),
             // Added Confirm Password Field
             CustomTextfield(
               icon: Icons.lock,
               obscureText: true,
               hintText: 'Confirm Password',
+              controller: confirmPasswordController,
             ),
             const SizedBox(height: 10),
 
@@ -69,7 +109,7 @@ class _SignupState extends State<Signup> {
                 minimumSize: Size(size.width, 0),
               ),
               onPressed: () {
-                Navigator.pushNamed(context, '/landing');
+                _handleSignup();
               },
               child: const Text(
                 'Sign Up',
