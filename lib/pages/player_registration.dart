@@ -9,7 +9,7 @@ class PlayerRegistration extends StatefulWidget {
 }
 
 class _PlayerRegistrationState extends State<PlayerRegistration> {
-  int _selectedIndex = 2; // Ensure this page is highlighted
+  int _selectedIndex = 1; // Ensure this page is highlighted
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController ageController = TextEditingController();
@@ -65,12 +65,9 @@ class _PlayerRegistrationState extends State<PlayerRegistration> {
 
     switch (index) {
       case 0:
-        Navigator.pushNamed(context, '/events'); // Navigate to Events Page
+        Navigator.pushNamed(context, '/landing'); // Navigate to Events Page
         break;
       case 1:
-        Navigator.pushNamed(context, '/team'); // Navigate to Team Registration
-        break;
-      case 2:
         break; // Already on this page, do nothing
     }
   }
@@ -156,7 +153,6 @@ class _PlayerRegistrationState extends State<PlayerRegistration> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: 'Events'),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Team'),
           BottomNavigationBarItem(icon: Icon(Icons.person_4), label: 'Player'),
         ],
         currentIndex: _selectedIndex,
