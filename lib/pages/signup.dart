@@ -10,14 +10,14 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   // Controllers for capturing user input
-  final TextEditingController nameController = TextEditingController();
+  final TextEditingController teamNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
   void _handleSignup() {
-    String name = nameController.text;
+    String name = teamNameController.text;
     String email = emailController.text;
     String password = passwordController.text;
     String confirmPassword = confirmPasswordController.text;
@@ -33,14 +33,14 @@ class _SignupState extends State<Signup> {
     }
 
     // Print values (Replace with actual sign-up logic)
-    print("Name: $name");
+    print("Team Name: $name");
     print("Email: $email");
     print("Password: $password");
 
     // Show a dialog or Snackbar with the values
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
-        content: Text("Name: $name\nEmail: $email\nPassword: $password"),
+        content: Text("Team Name: $name\nEmail: $email\nPassword: $password"),
       ),
     );
   }
@@ -71,9 +71,9 @@ class _SignupState extends State<Signup> {
             // Added Name Field
             CustomTextfield(
               obscureText: false,
-              hintText: 'Enter Name',
+              hintText: 'Enter Team Name',
               icon: Icons.person,
-              controller: nameController,
+              controller: teamNameController,
             ),
             CustomTextfield(
               obscureText: false,

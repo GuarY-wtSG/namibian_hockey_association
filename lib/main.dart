@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nho_app/pages/login.dart';
 import 'package:nho_app/pages/landing.dart';
 import 'package:nho_app/pages/signup.dart';
+import 'package:nho_app/pages/player_registration.dart';
 
 void main() {
   runApp(const MainApp());
@@ -19,6 +20,7 @@ class MainApp extends StatelessWidget {
         '/login': (context) => Login(),
         '/landing': (context) => Landing(),
         '/signup': (context) => Signup(),
+        '/player': (context) => PlayerRegistration(),
       },
     );
   }

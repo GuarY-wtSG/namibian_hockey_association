@@ -8,9 +8,8 @@ class Landing extends StatefulWidget {
 }
 
 class _LandingState extends State<Landing> {
-  int _selectedIndex = 0; // Track the selected bottom navigation item
+  int _selectedIndex = 0; // Default to Events tab
 
-  // Sample hockey events
   final List<Map<String, String>> events = [
     {
       'name': 'Winter Hockey Championship',
@@ -40,12 +39,34 @@ class _LandingState extends State<Landing> {
       'category': 'Men',
       'league': 'Prem',
     },
+    {
+      'name': 'Junior U/17 Cup Finals',
+      'location': 'Capital Hockey Grounds',
+      'dateTime': 'June 15, 2025 | 16:00',
+      'category': 'Men',
+      'league': 'U/17',
+    },
+    {
+      'name': 'U/15 Regional Playoffs',
+      'location': 'Namibia National Hockey Arena',
+      'dateTime': 'June 22, 2025 | 14:00',
+      'category': 'Women',
+      'league': 'U/15',
+    },
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index; // Update selected index
-    });
+    switch (index) {
+      case 0:
+        Navigator.pushNamed(context, '/events'); // Navigate to Events Page
+        break;
+      case 1:
+        Navigator.pushNamed(
+          context,
+          '/player',
+        ); // Navigate to Player Registration Page
+        break;
+    }
   }
 
   @override
@@ -53,26 +74,18 @@ class _LandingState extends State<Landing> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.green[900],
-        leading: Icon(
-          Icons.sports_hockey_outlined,
-          color: Colors.grey[300], // Light grey icon
-        ),
-        title: Text(
-          "Events",
-          style: TextStyle(color: Colors.grey[300]), // Light grey text
-        ),
+        leading: Icon(Icons.sports_hockey_outlined, color: Colors.grey[300]),
+        title: Text("Events", style: TextStyle(color: Colors.grey[300])),
         actions: [
           IconButton(
             icon: const Icon(Icons.person, size: 30),
-            color: Colors.grey[300], // Light grey profile icon
+            color: Colors.grey[300],
             onPressed: () {
               // Handle profile icon press
             },
           ),
         ],
       ),
-
-      // Scrollable List of Events
       body: ListView.builder(
         padding: const EdgeInsets.all(10),
         itemCount: events.length,
@@ -136,16 +149,14 @@ class _LandingState extends State<Landing> {
           );
         },
       ),
-
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.newspaper), label: 'Events'),
-          BottomNavigationBarItem(icon: Icon(Icons.people), label: 'Team'),
           BottomNavigationBarItem(icon: Icon(Icons.person_4), label: 'Player'),
         ],
-        currentIndex: _selectedIndex, // Highlight selected item
-        onTap: _onItemTapped, // Handle tap
-        selectedItemColor: Colors.green[900], // Highlight color
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        selectedItemColor: Colors.green[900],
         unselectedItemColor: Colors.grey,
       ),
     );
