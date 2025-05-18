@@ -91,6 +91,7 @@ class _LoginState extends State<Login> {
                 Expanded(child: Divider()),
               ],
             ),
+            const SizedBox(height: 20),
             Container(
               width: size.width,
               decoration: BoxDecoration(
@@ -103,7 +104,11 @@ class _LoginState extends State<Login> {
                 children: [
                   SizedBox(
                     height: 30,
-                    child: Image.asset('assets/image/google.png'),
+                    child: Image.asset('lib/images/google.png'),
+                  ),
+                  Text(
+                    'Login with Google',
+                    style: TextStyle(color: Colors.green[900], fontSize: 18.0),
                   ),
                 ],
               ),
