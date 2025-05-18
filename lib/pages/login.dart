@@ -16,9 +16,9 @@ class _LoginState extends State<Login> {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          //mainAxisAlignment: MainAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Align(
               alignment: Alignment.center,
@@ -58,24 +58,59 @@ class _LoginState extends State<Login> {
                 minimumSize: Size(size.width, 0),
               ),
               onPressed: () {
-                // Handle button press
+                Navigator.pushNamed(context, '/landing');
               },
               child: const Text(
                 'Login',
                 style: TextStyle(color: Color.fromARGB(255, 11, 93, 13)),
               ),
             ),
+            SizedBox(height: 10),
+            Center(
+              child: GestureDetector(
+                onTap: () {
+                  // Handle tap event
+                  Navigator.pushNamed(context, '/signup');
+                },
+                child: Text.rich(
+                  TextSpan(
+                    text: "Sign Up?",
+                    style: TextStyle(color: Colors.black.withOpacity(.5)),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                Expanded(child: Divider()),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Text('OR'),
+                ),
+                Expanded(child: Divider()),
+              ],
+            ),
+            Container(
+              width: size.width,
+              decoration: BoxDecoration(
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(10),
+              ),
+              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SizedBox(
+                    height: 30,
+                    child: Image.asset('assets/image/google.png'),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
-      /* Center(
-        child: ElevatedButton(
-          onPressed: () {
-            Navigator.pushNamed(context, '/landing');
-          },
-          child: Text("Login"),
-        ),
-      ), */
     );
   }
 }
