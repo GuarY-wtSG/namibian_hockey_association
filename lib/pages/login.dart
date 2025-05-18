@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:nho_app/pages/widgets/custom_textfield.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -19,10 +20,50 @@ class _LoginState extends State<Login> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Icon(Icons.sports_hockey, size: 250, color: Colors.green[800]),
+            Align(
+              alignment: Alignment.center,
+              child: Icon(
+                Icons.sports_hockey,
+                size: 250,
+                color: Colors.green[900],
+              ),
+            ),
             const Text(
               "Login",
               style: TextStyle(fontSize: 35.0, fontWeight: FontWeight.w700),
+            ),
+            const SizedBox(height: 30),
+
+            CustomTextfield(
+              obscureText: false,
+              hintText: 'Enter Email',
+              icon: Icons.alternate_email,
+            ),
+            CustomTextfield(
+              icon: Icons.lock,
+              obscureText: true,
+              hintText: 'Enter Password',
+            ),
+            const SizedBox(height: 10),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green[950],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 10,
+                ),
+                minimumSize: Size(size.width, 0),
+              ),
+              onPressed: () {
+                // Handle button press
+              },
+              child: const Text(
+                'Login',
+                style: TextStyle(color: Color.fromARGB(255, 11, 93, 13)),
+              ),
             ),
           ],
         ),
