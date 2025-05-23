@@ -22,7 +22,7 @@ class CustomBottomNav extends StatelessWidget {
           // navigate to team management
           GButton(icon: Icons.group, text: 'Manage Team'),
           // navigate to event where you can make entries or join
-          GButton(icon: Icons.login, text: 'Events'),
+          GButton(icon: Icons.event, text: 'Events'),
         ],
       ),
     );
