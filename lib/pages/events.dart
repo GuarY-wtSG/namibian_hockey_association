@@ -57,7 +57,7 @@ class _EventsState extends State<Events> {
                 'See all',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  color: Colors.deepPurpleAccent,
+                  color: Colors.blue,
                 ),
               ),
             ],

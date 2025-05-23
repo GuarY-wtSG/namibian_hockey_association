@@ -17,7 +17,13 @@ class EventTile extends StatelessWidget {
       child: Column(
         children: [
           //event pics
-          ClipRRect(child: Image.asset(event.imagePath)),
+          ClipRRect(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(12),
+              topRight: Radius.circular(12),
+            ),
+            child: Image.asset(event.imagePath),
+          ),
 
           //event details
           Container(
@@ -25,6 +31,7 @@ class EventTile extends StatelessWidget {
             padding: const EdgeInsets.all(12),
             /* decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
+              color: Colors.black,
             ), */
             child: Stack(
               children: [
@@ -42,6 +49,8 @@ class EventTile extends StatelessWidget {
                     Text(event.date!),
                   ],
                 ),
+
+                // place all the details in the correct positions
                 Positioned(
                   bottom: 0,
                   right: 0,
@@ -67,6 +76,31 @@ class EventTile extends StatelessWidget {
                 ),
               ],
             ),
+          ),
+
+          // jsut to ensure that the row is at the bottom of the container
+          Expanded(child: SizedBox.shrink()),
+
+          // Register button and status
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              Text(
+                'Register for Event  ',
+                style: TextStyle(color: Colors.blue),
+              ),
+              Container(
+                padding: EdgeInsets.all(20),
+                decoration: BoxDecoration(
+                  color: Colors.blueGrey,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(12),
+                    bottomRight: Radius.circular(12),
+                  ),
+                ),
+                child: Icon(Icons.add, color: Colors.white),
+              ),
+            ],
           ),
         ],
       ),

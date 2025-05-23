@@ -102,7 +102,7 @@ class _LandingState extends State<Landing> {
           ],
         ),
       ),
-      backgroundColor: const Color.fromARGB(255, 214, 235, 194),
+      backgroundColor: Colors.grey[300],
       body: _pages[_selectedIndex],
     );
   }
