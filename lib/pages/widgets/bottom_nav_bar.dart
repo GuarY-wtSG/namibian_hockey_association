@@ -8,6 +8,7 @@ class CustomBottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(vertical: 20),
       child: GNav(
         color: Colors.grey[400],
         activeColor: Colors.grey.shade700,
@@ -22,7 +23,7 @@ class CustomBottomNav extends StatelessWidget {
           // navigate to team management
           GButton(icon: Icons.group, text: 'Manage Team'),
           // navigate to event where you can make entries or join
-          GButton(icon: Icons.login, text: 'Events'),
+          GButton(icon: Icons.event, text: 'Events'),
         ],
       ),
     );
