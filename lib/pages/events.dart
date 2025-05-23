@@ -33,12 +33,12 @@ class _EventsState extends State<Events> {
           ),
         ),
 
-        // Adding this text just no i keep trak of where things are placed
+        // Adding this text just know i keep trak of where things are placed
         Padding(
           padding: const EdgeInsets.all(20.0),
           child: Text(
             '-"scorring a penalty corner is 1% skill and 99% not thinking about missing"',
-            style: TextStyle(color: Colors.grey[600]),
+            style: TextStyle(color: Colors.grey[900]),
           ),
         ),
 
