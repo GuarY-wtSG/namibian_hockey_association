@@ -27,7 +27,7 @@ class _LandingState extends State<Landing> {
   //pages to diplay
   final List<Widget> _pages = [
     // notifications and current upcoming events
-    const News(),
+    const NewsPage(),
     // team management
     const TeamManage(),
     // enter a new event

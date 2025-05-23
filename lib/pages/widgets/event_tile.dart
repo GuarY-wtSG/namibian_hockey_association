@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nho_app/pages/models/event.dart';
 
+// ignore: must_be_immutable
 class EventTile extends StatelessWidget {
   Event event;
   EventTile({super.key, required this.event});
