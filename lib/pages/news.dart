@@ -18,7 +18,7 @@ class _NewsState extends State<NewsPage> {
       // Listview) aplly the following code and height or width to each container
       // scrollDirection: Axis.horizontal, (for Rows)
       children: [
-        // main content of the page
+        // main news content of the page
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 25.0),
           child: Row(

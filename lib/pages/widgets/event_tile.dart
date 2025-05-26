@@ -4,7 +4,9 @@ import 'package:nho_app/pages/models/event.dart';
 // ignore: must_be_immutable
 class EventTile extends StatelessWidget {
   Event event;
-  EventTile({super.key, required this.event});
+
+  void Function()? onTap;
+  EventTile({super.key, required this.event, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -90,16 +92,21 @@ class EventTile extends StatelessWidget {
                 'Register for Event  ',
                 style: TextStyle(color: Colors.blue),
               ),
-              Container(
-                padding: EdgeInsets.all(20),
-                decoration: BoxDecoration(
-                  color: Colors.blueGrey,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(12),
-                    bottomRight: Radius.circular(12),
+
+              // button
+              GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  padding: EdgeInsets.all(20),
+                  decoration: BoxDecoration(
+                    color: Colors.blueGrey,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(12),
+                      bottomRight: Radius.circular(12),
+                    ),
                   ),
+                  child: Icon(Icons.add, color: Colors.white),
                 ),
-                child: Icon(Icons.add, color: Colors.white),
               ),
             ],
           ),

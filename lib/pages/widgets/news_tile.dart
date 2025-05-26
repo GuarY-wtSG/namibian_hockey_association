@@ -32,14 +32,18 @@ class NewsTile extends StatelessWidget {
               },
             ),
           ),
-          SizedBox(height: 10),
+          SizedBox(height: 20),
 
           //News description
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10.0),
             child: Text(
               news.title,
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+              style: TextStyle(
+                color: Colors.blueGrey,
+                fontWeight: FontWeight.bold,
+                fontSize: 24,
+              ),
             ),
           ),
           Padding(
