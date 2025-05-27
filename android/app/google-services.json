@@ -1,26 +1,79 @@
 {
   "project_info": {
-    "project_number": "7900628764",
-    "project_id": "nhassoci-auth",
-    "storage_bucket": "nhassoci-auth.firebasestorage.app"
+    "project_number": "867699745981",
+    "project_id": "hockauth-16e4e",
+    "storage_bucket": "hockauth-16e4e.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:7900628764:android:17c6f14ee594771f855cd9",
+        "mobilesdk_app_id": "1:867699745981:android:a615a4af4f193f600643d4",
         "android_client_info": {
-          "package_name": "com.example.nho_app"
+          "package_name": "com.example.hockey_app"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "867699745981-d0vfq145u4pt8bono4chggb60lljg5e3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyBdA0X0BnN43b-2SF-4GllopDmaFacEKc0"
+          "current_key": "AIzaSyCgVJ1hhdAHf6TQGXE_bmrjODt6juFZL3o"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867699745981-d0vfq145u4pt8bono4chggb60lljg5e3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "867699745981-nii7921c47u9eqca5mjaegqqu6phhb0k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.hockeyApp"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:867699745981:android:b287e6d5487b614a0643d4",
+        "android_client_info": {
+          "package_name": "com.example.nho_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "867699745981-d0vfq145u4pt8bono4chggb60lljg5e3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgVJ1hhdAHf6TQGXE_bmrjODt6juFZL3o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "867699745981-d0vfq145u4pt8bono4chggb60lljg5e3.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "867699745981-nii7921c47u9eqca5mjaegqqu6phhb0k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.hockeyApp"
+              }
+            }
+          ]
         }
       }
     }
