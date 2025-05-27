@@ -54,6 +54,7 @@ class UpcomingList extends ChangeNotifier {
       imagePath: 'lib/images/girls.jpg',
     ),
   ];
+
   // list of events in upcoming for user
   List<Event> userUpcoming = [];
 

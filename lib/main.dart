@@ -5,7 +5,6 @@ import 'package:nho_app/pages/models/upcoming_list.dart';
 import 'package:nho_app/pages/signup.dart';
 import 'package:nho_app/pages/player_registration.dart';
 import 'package:provider/provider.dart';
-import 'package:nho_app/pages/models/upcoming_list.dart';
 
 void main() {
   runApp(const MainApp());
