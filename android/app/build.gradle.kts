@@ -9,7 +9,11 @@ plugins {
 
 android {
     namespace = "com.example.nho_app"
+<<<<<<< HEAD
     compileSdk = 34
+=======
+    compileSdk = flutter.compileSdkVersion
+>>>>>>> master
     ndkVersion = "27.0.12077973"
 
     compileOptions {
