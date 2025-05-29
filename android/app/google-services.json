@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "7900628764",
-    "project_id": "nhassoci-auth",
-    "storage_bucket": "nhassoci-auth.firebasestorage.app"
+    "project_number": "1022543168990",
+    "project_id": "nho-85f86",
+    "storage_bucket": "nho-85f86.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:7900628764:android:17c6f14ee594771f855cd9",
+        "mobilesdk_app_id": "1:1022543168990:android:de82fc8fafd0fc0973494f",
         "android_client_info": {
           "package_name": "com.example.nho_app"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBdA0X0BnN43b-2SF-4GllopDmaFacEKc0"
+          "current_key": "AIzaSyB2wD-429YE7NAUFvgS_jqNG2U-DJqyvOE"
         }
       ],
       "services": {
