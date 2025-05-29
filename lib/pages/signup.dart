@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nho_app/pages/widgets/custom_textfield.dart';
 
@@ -16,33 +17,36 @@ class _SignupState extends State<Signup> {
   final TextEditingController confirmPasswordController =
       TextEditingController();
 
-  void _handleSignup() {
-    String name = teamNameController.text;
-    String email = emailController.text;
-    String password = passwordController.text;
-    String confirmPassword = confirmPasswordController.text;
+  Future<void> _handleSignup() async {
+    String teamName = teamNameController.text.trim();
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
+    String confirmPassword = confirmPasswordController.text.trim();
 
-    // Simple validation: Check if passwords match
     if (password != confirmPassword) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text("Passwords do not match!")));
-      return; // Stop execution if passwords don't match
-    } else {
-      Navigator.pushNamed(context, '/landing');
+      ).showSnackBar(const SnackBar(content: Text("Passwords do not match!")));
+      return;
     }
 
-    // Print values (Replace with actual sign-up logic)
-    print("Team Name: $name");
-    print("Email: $email");
-    print("Password: $password");
+    try {
+      // Create a new user account with Firebase Auth
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
 
-    // Show a dialog or Snackbar with the values
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text("Team Name: $name\nEmail: $email\nPassword: $password"),
-      ),
-    );
+      // Optionally, you can store additional info – for example, the team name
+      // in Firestore. See step 5 below.
+
+      // Navigate to the landing page on success
+      Navigator.pushNamed(context, '/landing');
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Signup failed: ${e.toString()}")));
+    }
   }
 
   @override

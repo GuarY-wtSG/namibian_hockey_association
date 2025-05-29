@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:nho_app/pages/widgets/custom_textfield.dart';
 
@@ -12,18 +13,24 @@ class _LoginState extends State<Login> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
-  void _handleLogin() {
-    String email = emailController.text;
-    String password = passwordController.text;
+  Future<void> _handleLogin() async {
+    String email = emailController.text.trim();
+    String password = passwordController.text.trim();
 
-    // Print values (You can replace this with actual authentication logic)
-    print("Email: $email");
-    print("Password: $password");
-
-    // Show a dialog or Snackbar with the values
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(content: Text("Email: $email\nPassword: $password")),
-    );
+    try {
+      // Sign in with Firebase Authentication
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      // On success, navigate to the landing page
+      Navigator.pushNamed(context, '/landing');
+    } catch (e) {
+      // Show error message in case of failure
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text("Login failed: ${e.toString()}")));
+    }
   }
 
   @override
