@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:nho_app/pages/login.dart';
 import 'package:nho_app/pages/landing.dart';
 import 'package:nho_app/pages/models/upcoming_list.dart';
+import 'package:nho_app/pages/models/team_roster.dart';
 import 'package:nho_app/pages/signup.dart';
 import 'package:nho_app/pages/player_registration.dart';
 import 'package:provider/provider.dart';
@@ -15,16 +16,19 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => UpcomingList(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => UpcomingList()),
+        ChangeNotifierProvider(create: (_) => TeamRoster()),
+      ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: Login(),
         routes: {
-          '/login': (context) => Login(),
-          '/landing': (context) => Landing(),
-          '/signup': (context) => Signup(),
-          '/player': (context) => PlayerRegistration(),
+          '/login': (context) => const Login(),
+          '/landing': (context) => const Landing(),
+          '/signup': (context) => const Signup(),
+          '/player': (context) => const PlayerRegistration(),
         },
       ),
     );
